@@ -57,7 +57,7 @@ This extension solves a common gap in standard Business Central — users could 
 ![Item Card](images/item-card.png)
 
 **3. Live BOM Totals**  
-![BOM Totals](images/bom-totals.png)
+![BOM Totals](images/assembly-bom.png)
 
 ---
 
