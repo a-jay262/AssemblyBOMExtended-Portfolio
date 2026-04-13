@@ -56,9 +56,6 @@ This extension solves a common gap in standard Business Central — users could 
 **2. Item Card - BOM Estimates**  
 ![Item Card](images/item-card.png)
 
-**3. Live BOM Totals**  
-![BOM Totals](images/assembly-bom.png)
-
 ---
 
 ## 🚀 My Role
