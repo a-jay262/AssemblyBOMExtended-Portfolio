@@ -1,93 +1,93 @@
-# Assembly BOM Cost & Price Estimator
+# AssemblyBOMExtended
 
-**Microsoft Dynamics 365 Business Central Extension**
-
-A custom enhancement I developed to add real-time cost and price visibility in Assembly BOMs with proper Unit of Measure conversion.
+**Dynamics 365 Business Central Extension**  
+*Real-time Unit Cost & Unit Price visibility with UOM-aware calculations for Assembly BOMs*
 
 ---
 
 ## 📋 Project Overview
 
-This extension solves a common gap in standard Business Central — users could not easily view the **estimated cost and selling price** of an assembled item directly from the BOM and Item Card, especially when using alternate units of measure.
+This extension enhances the standard **Assembly BOM** functionality in Business Central by automatically displaying and calculating:
 
-### Business Value
-- Helps production/planning teams quickly estimate assembly costs
-- Improves pricing decisions for assembled items
-- Real-time updates with no manual recalculations
+- Unit Cost and Unit Price per BOM component
+- Total Line Cost and Total Line Price
+- Aggregated BOM Totals (Cost & Price)
+- Estimated BOM Cost & Price directly on the **Item Card**
 
----
-
-## ✨ Features Delivered
-
-- ✅ Real-time calculation of Unit Cost, Unit Price, Line Cost & Line Price
-- ✅ Accurate UOM conversion logic (Base UOM → BOM UOM)
-- ✅ Live Total Cost & Total Price at BOM level
-- ✅ Smart BOM Estimates section on Item Card (visible only for Assembly items)
-- ✅ Clean and professional UI integration
+It intelligently handles **Unit of Measure** conversions, ensuring accurate costing even when BOM lines use different UOMs than the item's base unit.
 
 ---
 
-## 🛠 Technical Implementation
+## ✨ Key Features
 
-### Objects Developed
+- Real-time recalculation on changes to `No.`, `Quantity per`, and `Unit of Measure Code`
+- Proper **UOM Conversion** logic (Base UOM → BOM UOM)
+- Live **BOM Totals** section at the bottom of the Assembly BOM page
+- Smart visibility of BOM estimates on Item Card (only for Assembly items)
+- FlowField-based rollups for best performance
+- Clean, non-intrusive UI integration
 
-| Type             | Name                          | ID       | Key Contribution |
-|------------------|-------------------------------|----------|------------------|
-| Table Extension  | BOM Component Ext             | 70808802 | `CalculateLineAmounts()` procedure + fields |
-| Table Extension  | Item Ext                      | 70808803 | FlowFields for BOM rollups |
-| Page Extension   | Assembly BOM Ext              | 70808800 | Real-time fields + Totals group |
-| Page Extension   | Item Card Ext                 | 70808801 | Conditional visibility logic |
+---
 
-### Key Technical Highlights
+## 🛠 Technical Highlights
 
-- Proper **UOM Conversion** using `Item Unit of Measure`
-- Calculation logic centralized in Table Extension (best practice)
-- Efficient FlowFields for BOM totals
-- Smart page refresh & visibility handling
-- `OnAfterValidate` + `OnAfterGetRecord` triggers for real-time UX
+- **Table Extensions** on `BOM Component` and `Item`
+- **Page Extensions** on Assembly BOM and Item Card
+- Centralized calculation logic in `CalculateLineAmounts()` procedure
+- Event-driven updates using `OnAfterValidate` and `OnAfterGetRecord`
+- Smart visibility pattern to avoid unnecessary page refreshes
+
+### Version History
+
+- **27.0.0.0** — Initial release
+- **27.0.0.1** — Added fields on Item Card + BOM Totals
+- **27.0.0.2** — Implemented UOM handling
+- **27.0.0.3** — Fixed UOM conversion for Unit Price & Cost
 
 ---
 
 ## 📸 Screenshots
 
-**1. Enhanced Assembly BOM Page**  
-![Assembly BOM](images/assembly-bom.png)
+**Assembly BOM Page with Cost & Price Columns**  
+![Assembly BOM Enhanced](images/assembly-bom.png)
 
-**2. Item Card - BOM Estimates**  
+**Item Card - Estimated BOM Totals**  
 ![Item Card](images/item-card.png)
 
----
-
-## 🚀 My Role
-
-- Requirement analysis & solution design
-- Full development (AL Language)
-- Testing with different UOM scenarios
-- UI/UX optimization
+*(Add your screenshots in the `images/` folder)*
 
 ---
 
-## 💡 Learning & Best Practices Applied
+## 🚀 Installation
 
-- Separation of concerns (logic in Table Extension)
-- Performance-aware design with FlowFields
-- Clean coding standards and proper triggers usage
-- Real-world business process understanding (Assembly BOM costing)
-
----
-
-## 📄 Technologies
-
-- **AL Language**
-- Dynamics 365 Business Central
-- Visual Studio Code
+1. Download or clone this repository
+2. Open the project in Visual Studio Code with AL Language extension
+3. Update `app.json` with your publisher details and ID range
+4. Publish the extension to your Business Central environment
+5. Test on any Item with Assembly BOM enabled
 
 ---
 
-**This project demonstrates my ability to deliver practical, user-focused enhancements in Business Central.**
+## 💡 Best Practices Applied
+
+- Logic centralized in Table Extension (reusable & maintainable)
+- Efficient use of FlowFields for totals
+- Proper handling of different Units of Measure
+- Clean trigger usage for real-time experience
+
+---
+
+## 📄 License
+
+This is a **personal portfolio project** showcasing my Dynamics 365 Business Central development skills.  
+Source code is provided for demonstration purposes only.
 
 ---
 
 **Alishba**  
 Dynamics 365 Business Central Developer  
 Lahore, Pakistan
+
+---
+
+**This project demonstrates my ability to deliver practical, user-focused enhancements with proper AL coding standards and business logic.**
